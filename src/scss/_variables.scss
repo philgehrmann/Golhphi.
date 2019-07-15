@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Fauna+One|Nunito+Sans&display=swap');
+
+//Fonts
+$headlineFont :'Fauna One', serif;
+$headlineFontSecond: 'Anton', sans-serif;
+$textFont: 'Nunito Sans', sans-serif;
+
+//Colors
+$white: #FAFCFC;
+$tuerkis: #A9D3C6;
+$darkblue:#91AABA;
+$beege:#E1DED5;
+$gray:#D1D2CE;
+
+//Mixins
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+@mixin letter-spacing($sizeValue: 1.6) {
+  letter-spacing: ($sizeValue * 10) + px;
+  letter-spacing:  $sizeValue + rem;
+}
+
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+      @content;
+  }
+}
