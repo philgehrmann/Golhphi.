@@ -1,33 +1,37 @@
 <template>
   <div id="app">
       <div class="header">
-      <a href="/"><h1>GOLFPHI.</h1></a>
+      <a href="/" @click.prevent="activeView = 'home'"><h1>GOLFPHI.</h1></a>
       <div class="navigation">
       <ul>
         <li class="is--active"><a href="/">Home</a></li>
-        <li><a href="#" @click.prevent="activeView = 'blog'" >Blog</a></li>
+        <li><a href="#" >Blog</a></li>
         <li><a href="/videos">Videos</a></li>
+        <li><a href="/podcast">Podcast</a></li>
         <li><a href="/kontakt">Kontakt</a></li>
       </ul>
   </div>
   </div>
     <div class="maincontent">
       <Maincontent></Maincontent>
-      <component :is="activeView"></component>
     </div>
+    <Instagram></Instagram>
     <Footer></Footer>
   </div>
+
 </template>
 
 <script>
 import Footer from './components/footer.vue'
+import Instagram from './components/instagram.vue'
 import Maincontent from './components/maincontent.vue'
 
 export default {
   name: 'app',
   components: {
     Footer,
-    Maincontent
+    Maincontent,
+    Instagram
   },
   data(){
     return {
@@ -42,6 +46,9 @@ export default {
 @import "./scss/_variables.scss";
 @import "./scss/_globals.scss";
 .navigation {
+  display:none;
+  @include lg {
+  display:block;
   text-align: right;
   padding: 2rem;
   ul {
@@ -52,12 +59,12 @@ export default {
        &:before {
           content: "";
           position: absolute;
-          height:100%;
+          height:2px;
           width: 0;
           margin: 0 auto;
-          top: 0;
+          bottom: 0;
           left: 0;
-          background: $tuerkis;
+          background: $white;
           transition: all 0.5s ease;
        }
         &:hover {
@@ -74,7 +81,7 @@ export default {
       a {
           font-family: $textFont;
           position:relative;
-          @include font-size(1.2);
+          @include font-size(0.9);
           z-index: 1;
           color: $white;
           text-decoration: none;
@@ -88,26 +95,34 @@ export default {
         &:before {
           content: "";
           position: absolute;
-          height:2px;
+          height: 2px;
           width: 100%;
           margin: 0 auto;
           bottom:0;
-          background: $tuerkis;
+          background: $white;
           transition: all 0.3s ease;
        }
       }
     }
+    }
   }
 }
 .header {
-    position: relative;
+    position: absolute;
     z-index:25;
     width: 100vw;
     height: 60px;
     top:0;
+    padding:1rem;
+    padding-top:0;
     display: grid;
     grid-template-columns: 50% 50%;
+    h1 {
+    position: relative;
+    transform: skew(-15deg);
+  }
   @include lg {
+    position: fixed;
     grid-template-columns: 20% 80%;
     padding:1rem;
     height: 130px;

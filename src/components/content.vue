@@ -1,15 +1,19 @@
 <template>
-  <div class="home">
+  <div class="kontakt">
+    kontakt
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
+  name: 'Kontakt',
     components: {
   },
   props: {
     msg: String
+  },
+  methods: {
+    
   }
 }
 </script>

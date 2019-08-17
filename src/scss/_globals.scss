@@ -19,38 +19,104 @@ h2,
 h3 {
   font-family: $headlineFontSecond;
   color: $white;
-  @include font-size(2);
+  @include font-size(1);
   font-weight:600;
   @include letter-spacing(0.2);
   margin-top: 20px;
   margin-bottom: 20px;
+  @include lg {
+  font-family: $headlineFontSecond;
+  color: $white;
+  @include font-size(2);
+  font-weight:600;
+  @include letter-spacing(0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 }
 h1 {
-    @include font-size(3);
+    @include font-size(1);
     @include lg {
-      @include font-size(2);
+      @include font-size(1.5);
       font-weight: 400;
     }
 }
 h2 {
-    @include font-size(2.2);
+    @include font-size(1.5);
     @include lg {
-      @include font-size(4.4);
+      @include font-size(2);
 
       span {
-        @include font-size(4.2);
+        @include font-size(2);
       }
     }
 }
 h3 {
-    @include font-size(1.5);
+    @include font-size(2);
     @include lg {
-      @include font-size(3);
+      @include font-size(2);
     }
 }
 
 p,span,a,input, textarea, button {
   text-decoration: none;
+  line-height: 1.5;
   font-family: $textFont;
-  @include font-size(1.2);
+  @include font-size(1);
+}
+
+a{
+  cursor:pointer;
+}
+
+input {
+  padding: 0.8rem;
+  color: $lightdark;
+  margin-top: 1rem;
+  @include lg {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  width: 100%;
+  &::placeholder {
+    color: $lightdark;
+    font-size: 0.7rem;
+    @include lg {
+      font-size: 0.9rem;
+    }
+  }
+  &.row-block {
+    width: 100%;
+    @include lg {
+      display:inline-block;
+      width: auto;
+      width: 80%;
+    }
+  }
+}
+.btn {
+  &--normal {
+    background:$tuerkis;
+    color: $white;
+    font-size: 0.8rem;
+    padding:0.7rem;
+    @include lg {
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    text-align: center;
+  }
+  &--inline {
+    display:block;
+      width: 100%;
+      margin-top:0;
+    @include lg {
+      display:inline-block;
+      width: 20%;
+    }
+  }
+  &:hover {
+    background: $tuerkislight;
+    transition: all 0.5s ease;
+  }
 }

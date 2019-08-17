@@ -11,6 +11,8 @@ $tuerkis: #A9D3C6;
 $darkblue:#91AABA;
 $beege:#E1DED5;
 $gray:#D1D2CE;
+$lightdark: rgba(0,0,0,0.6);
+$tuerkislight: rgba(169,211,198,0.7);
 
 //Mixins
 @mixin font-size($sizeValue: 1.6) {
